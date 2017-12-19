@@ -3,10 +3,10 @@ makeCurl(getHeaders(a));
 
 function getHeaders(d) {
     var c = JSON.parse(d);
-    var headers = c.data[0]['headers.header'],
-        values = c.data[0]['headers.value'],
+    var headers = c.data ? c.data[0]['headers.header'] : c['headers.header'],
+        values = c.data ? c.data[0]['headers.value'] : c['headers.value'],
         headerObject = {};
-    headerObject['request_uri'] = c.data[0]['request_uri'];
+    headerObject['request_uri'] = c.data ? c.data[0]['request_uri'] : c['request_uri'];
     for (var i = 0; i < headers.length; i++) {
         headerObject[headers[i]] = values[i];
     }
