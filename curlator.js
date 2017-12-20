@@ -1,7 +1,7 @@
 var a = process.argv[2]; //забираем json из stdin
 makeCurl(getHeaders(a)); //вызываем для него функцию
 
-function getHeaders(d) {  //на вход забираем JSON as string (в кавычках)
+function getHeaders(d) {  //на вход забираем json as string (в кавычках)
     var c = JSON.parse(d); //парсим json в объект
     var headers = c.data ? c.data[0]['headers.header'] : c['headers.header'], // в первом случае парсим поле из format JSON, во втором из JSONEachRow
         values = c.data ? c.data[0]['headers.value'] : c['headers.value'],
